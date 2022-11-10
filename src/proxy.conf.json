@@ -1,0 +1,7 @@
+{
+  "/ajax/*": {
+    "target": "https://m.maoyan.com",
+    "secure": false,
+    "changeOrigin": true
+  }
+}
