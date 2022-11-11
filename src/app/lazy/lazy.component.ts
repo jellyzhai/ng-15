@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from './services/api.service';
+import { LazyApiService } from './services/lazy-api.service';
 
 @Component({
   selector: 'app-lazy',
@@ -7,11 +7,15 @@ import { ApiService } from './services/api.service';
   styleUrls: ['./lazy.component.scss'],
 })
 export class LazyComponent implements OnInit {
-  constructor(private apiService: ApiService) {}
+  beijingWeather = {};
+
+  constructor(private apiService: LazyApiService) {}
 
   ngOnInit(): void {}
 
   getComingSoongFilms() {
-    this.apiService.getComingSoon().subscribe(console)
+    this.apiService.getWeatherOfBeijing().subscribe((data) => {
+      this.beijingWeather = data;
+    });
   }
 }

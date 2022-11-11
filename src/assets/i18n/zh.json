@@ -1,0 +1,13 @@
+{
+  "home": {
+    "title": "路由/拦截器/翻译",
+    "see_console": "在控制台，看拦截器打印。",
+    "navigation": "导航：",
+    "label": {
+      "change_language": "切换语言"
+    },
+    "button": {
+      "get_Beijing_weather": "获取北京天气"
+    }
+  }
+}

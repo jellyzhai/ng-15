@@ -16,9 +16,9 @@ export class AuthInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     const newRequest = request.clone({
-      setHeaders: { 'X-xsrf-token': '456' },
+      setHeaders: { 'lazy-xsrf-token': '456' },
     });
-    console.log('lazy module', newRequest);
+    console.log('拦截器 来自 lazy module', newRequest);
     return next.handle(newRequest);
   }
 }

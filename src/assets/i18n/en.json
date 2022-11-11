@@ -1,0 +1,13 @@
+{
+  "home": {
+    "title": "Route/Interceptor/Translate",
+    "see_console": "see Interceptor in console.",
+    "navigation": "navigation: ",
+    "label": {
+      "change_language": "change language"
+    },
+    "button": {
+      "get_Beijing_weather": "get the weather of Beijing"
+    }
+  }
+}

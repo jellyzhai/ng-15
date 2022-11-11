@@ -1,4 +1,8 @@
-div {
+div.box {
   margin: 20px;
   border: 1px solid rebeccapurple;
+}
+
+.weather-box {
+  background-color: gainsboro;
 }

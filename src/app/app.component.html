@@ -1,6 +1,33 @@
 <div class="top">
-  <h1>特性模块中路由拦截器</h1>
+  <h1>{{ 'home.title' | translate }}</h1>
+
+  <h3>{{ 'home.see_console' | translate }}</h3>
+
+  <p>
+    <span style="margin-right: 10px">{{ 'home.label.change_language' | translate }}</span>
+    <select #select (change)="changeLang(select.value)">
+      <option *ngFor="let lang of supportedLangs" [value]="lang" [selected]="lang === currentLang">
+        {{lang}}
+      </option>
+    </select>
+  </p>
+
+  <p>
+    <button (click)="getComingSoongFilms()">
+      app {{ 'home.button.get_Beijing_weather' | translate}}
+    </button>
+  </p>
+
+  <div class="weather-box">
+    weather in app:
+    <pre>{{ beijingWeather | json }}</pre>
+  </div>
+
+  <p>0.259 -> {{ 0.259 | percent: '2.2'}}</p>
+  <p>{{ PI }} -> {{ PI | number: '2.2-2'}}</p>
+
   <nav>
+    {{ 'home.navigation' | translate }}
     <a routerLink="fast">fast</a>&nbsp;
     <a routerLink="lazy">lazy</a>
   </nav>

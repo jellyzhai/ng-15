@@ -7,11 +7,15 @@ import { FastApiService } from './services/fast-api.service';
   styleUrls: ['./fast.component.css'],
 })
 export class FastComponent implements OnInit {
+  beijingWeather = {};
+
   constructor(private apiService: FastApiService) {}
 
   ngOnInit() {}
 
   getComingSoongFilms() {
-    this.apiService.getComingSoon().subscribe(console);
+    this.apiService.getWeatherOfBeijing().subscribe((data) => {
+      this.beijingWeather = data;
+    });
   }
 }

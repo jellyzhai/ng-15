@@ -1,9 +1,23 @@
-<div>
+<div class="box">
   <p>lazy works!</p>
-  <button (click)="getComingSoongFilms()">获取即将上映数据</button>
+
+  <p>
+    <button (click)="getComingSoongFilms()">
+      lazy {{ 'home.button.get_Beijing_weather' | translate}}
+    </button>
+  </p>
+
+
+  <div class="weather-box">
+    weather in lazy:
+    <pre>{{ beijingWeather | json }}</pre>
+  </div>
+
   <nav>
+    {{ 'home.navigation' | translate }}
     <a routerLink="lazy-a">lazy-a</a> &nbsp;
     <a routerLink="lazy-b">lazy-b</a>
   </nav>
+
   <router-outlet></router-outlet>
 </div>

@@ -8,7 +8,7 @@ import {
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class FastAuthInterceptor implements HttpInterceptor {
+export class AuthInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(
@@ -16,9 +16,9 @@ export class FastAuthInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     const newRequest = request.clone({
-      setHeaders: { 'fast-xsrf-token': '123' },
+      setHeaders: { 'app-xsrf-token': '789' },
     });
-    console.log('拦截器 来自 fast module', newRequest);
+    console.log('拦截器 来自 app module', newRequest);
     return next.handle(newRequest);
   }
 }
