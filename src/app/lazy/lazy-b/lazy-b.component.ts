@@ -18,7 +18,7 @@ export class LazyBComponent implements OnInit {
   tplSelectVal = this.states[3];
 
   reactiveForm = this.fm.group({
-    select: this.fm.control(this.states[3])
+    select: this.fm.control(this.states[3]),
   });
 
   get reactiveSelect() {
@@ -27,7 +27,5 @@ export class LazyBComponent implements OnInit {
 
   constructor(private fm: FormBuilder) {}
 
-  ngOnInit(): void {
-    this.reactiveSelect?.valueChanges.subscribe(console.log);
-  }
+  ngOnInit(): void {}
 }
