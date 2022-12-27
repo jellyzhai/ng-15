@@ -10,10 +10,11 @@ import { FastBComponent } from './fast-b/fast-b.component';
 
 import { FastRoutingModule } from './fast-routing.module';
 import { interceptors } from './interceptors';
+import { NullOrLoadingComponent } from './views/null-or-loading/null-or-loading.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule, HttpClientModule, TranslateModule, FastRoutingModule],
-  declarations: [FastComponent, FastAComponent, FastBComponent],
+  declarations: [FastComponent, FastAComponent, FastBComponent, NullOrLoadingComponent],
   providers: [...interceptors],
 })
 export class FastModule {}

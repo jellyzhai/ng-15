@@ -1,1 +1,37 @@
 <div>lazy-b works!</div>
+<table border="1">
+  <tr>
+    <td>1</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td [attr.colSpan]="2">3</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>5</td>
+  </tr>
+</table>
+
+<hr>
+
+select 响应式表单实现
+<form [formGroup]="reactiveForm">
+  <select formControlName="select">
+    <option *ngFor="let item of states" [ngValue]="item">
+      {{ item.abbrev }}
+    </option>
+  </select>
+</form>
+{{ reactiveSelect?.value | json}}
+
+<hr>
+select 模板驱动表单实现
+<form #ngForm="ngForm">
+  <select name="tplSelect" [(ngModel)]="tplSelectVal">
+    <option *ngFor="let item of states" [ngValue]="item">
+      {{ item.abbrev }}
+    </option>
+  </select>
+</form>
+{{ tplSelectVal | json}}

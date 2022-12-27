@@ -6,3 +6,8 @@ div.box {
 .weather-box {
   background-color: gainsboro;
 }
+
+.weather-info {
+  background-color: lightblue;
+  padding: 10px;
+}

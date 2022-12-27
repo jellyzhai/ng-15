@@ -1,0 +1,7 @@
+<ng-container *ngIf="isLoading; else nullTpl">
+  <div>loading</div>
+</ng-container>
+
+<ng-template #nullTpl>
+  <div>暂无数据</div>
+</ng-template>

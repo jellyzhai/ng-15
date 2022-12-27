@@ -1,11 +1,106 @@
 <div class="box">
   fast works!
 
+  <section>
+    <button (click)="updateState()">随机修改状态</button>
+
+    <div *ngIf="(studentSubject$ | async) as student; else nullOrLoadingTpl">
+      {{ student | json}}
+    </div>
+
+    <ng-template #nullOrLoadingTpl let-student>
+      <app-null-or-loading [isLoading]="student === undefined"></app-null-or-loading>
+    </ng-template>
+  </section>
+
+  <div style="background-color: #eee">
+    <h4>{{ 'home.json_server_desc' | translate }}</h4>
+    <a href="https://github.com/typicode/json-server" target="_blank">
+      https://github.com/typicode/json-server
+    </a>
+    <div>
+      <div>
+        GET
+        <select #select>
+          <option value="posts" selected>posts</option>
+          <option value="comments">comments</option>
+        </select>
+        <button (click)="getData(select.value)">
+          {{ 'home.button.get_data' | translate}}
+        </button>
+      </div>
+      <div>
+        <button (click)="queryAssociatedSubData()">
+          GET | _embed {{ 'home.button.query_sub_data' | translate}}
+        </button>
+        <button (click)="queryAssociatedParentData()">
+          GET | _expand {{ 'home.button.query_parent_data' | translate}}
+        </button>
+      </div>
+      <div>
+        POST
+        <select #select2>
+          <option value="posts" selected>posts</option>
+          <option value="comments">comments</option>
+        </select><button (click)="addData(select2.value)">
+          {{ 'home.button.add_data' | translate}}
+        </button>
+      </div>
+      <div>
+        PUT
+        <select #select3>
+          <option value="posts" selected>posts</option>
+          <option value="comments">comments</option>
+        </select>
+        <button (click)="putUpdate(select3.value)">
+          {{ 'home.button.overall_update' | translate}}
+        </button>
+      </div>
+      <div>
+        PATCH
+        <select #select4>
+          <option value="posts" selected>posts</option>
+          <option value="comments">comments</option>
+        </select>
+        <button (click)="patchUpdate(select4.value)">
+          {{ 'home.button.partial_update' | translate}}
+        </button>
+      </div>
+      <div>
+        PATCH
+        <select #select5>
+          <option value="posts" selected>posts</option>
+          <option value="comments">comments</option>
+        </select>
+        <button (click)="deleteData(select5.value)">
+          DELETE | {{ 'home.button.delete_data' | translate}}
+        </button>
+      </div>
+
+    </div>
+    <hr>
+  </div>
+
   <p>
-    <button (click)="getComingSoongFilms()">
-      fast {{ 'home.button.get_Beijing_weather' | translate}}
+    <button (click)="getWeatherOfBeijing()">
+      fast {{ 'home.button.get_beijing_weather' | translate}}
+    </button>
+    <button (click)="clearWeatherOfBeijing()">
+      app {{ 'home.button.clear_beijing_weather' | translate}}
     </button>
   </p>
+
+  <ng-template #temperatureInfo let-info>
+    <section class="weather-info">
+      当前时间 {{currentTime | date: 'yyyy/MM/dd HH:mm:ss'}},
+      {{info.city + info.weatherInfo }} 气温
+      {{ info.temperature }} {{ info.direct + info.power}}
+    </section>
+  </ng-template>
+
+  <ng-container *ngIf="beijingWeather">
+    <ng-container *ngTemplateOutlet="temperatureInfo; context: templateContext"></ng-container>
+  </ng-container>
 
   <div class="weather-box">
     weather in fast:
@@ -14,8 +109,8 @@
 
   <nav>
     {{ 'home.navigation' | translate }}
-    <a routerLink="fast/fast-a">fast-a</a> &nbsp;
-    <a routerLink="fast/fast-b">fast-b</a>
+    <a routerLink="fast-a" routerLinkActive="link-active">fast-a</a> &nbsp;
+    <a routerLink="fast-b" routerLinkActive="link-active">fast-b</a>
   </nav>
 
   <router-outlet></router-outlet>

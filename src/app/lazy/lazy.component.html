@@ -1,9 +1,15 @@
 <div class="box">
   <p>lazy works!</p>
 
+  <ng-zone-demo></ng-zone-demo>
+  <hr>
+
   <p>
-    <button (click)="getComingSoongFilms()">
-      lazy {{ 'home.button.get_Beijing_weather' | translate}}
+    <button (click)="getWeatherOfBeijing()">
+      lazy {{ 'home.button.get_beijing_weather' | translate}}
+    </button>
+    <button (click)="clearWeatherOfBeijing()">
+      app {{ 'home.button.clear_beijing_weather' | translate}}
     </button>
   </p>
 
@@ -15,8 +21,8 @@
 
   <nav>
     {{ 'home.navigation' | translate }}
-    <a routerLink="lazy-a">lazy-a</a> &nbsp;
-    <a routerLink="lazy-b">lazy-b</a>
+    <a routerLink="lazy-a" routerLinkActive="link-active">lazy-a</a> &nbsp;
+    <a routerLink="lazy-b" routerLinkActive="link-active">lazy-b</a>
   </nav>
 
   <router-outlet></router-outlet>

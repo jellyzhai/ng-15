@@ -7,7 +7,17 @@
       "change_language": "change language"
     },
     "button": {
-      "get_Beijing_weather": "get the weather of Beijing"
+      "get_beijing_weather": "get the weather of Beijing",
+      "clear_beijing_weather": "clear the weather of Beijing",
+      "get_data": "get data",
+      "query_sub_data": "Query Associated Subordinate Data",
+      "query_parent_data": "Query Associated Parent Data",
+      "add_data": "add data",
+      "overall_update": "Full update data",
+      "partial_update": "Partial update data",
+      "delete_data": "delete data",
+      "back_to_top": "back to top",
+      "json_server_desc": "For simple use of the 'json server' interface, you need to start the 'json server' service and view the console print"
     }
   }
 }

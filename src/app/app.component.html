@@ -13,24 +13,46 @@
   </p>
 
   <p>
-    <button (click)="getComingSoongFilms()">
-      app {{ 'home.button.get_Beijing_weather' | translate}}
+    <button (click)="getWeatherOfBeijing()">
+      app {{ 'home.button.get_beijing_weather' | translate}}
+    </button>
+    <button (click)="clearWeatherOfBeijing()">
+      app {{ 'home.button.clear_beijing_weather' | translate}}
     </button>
   </p>
 
-  <div class="weather-box">
+  <!-- <div class="weather-box" [@openClose]="beijingWeather ? 'open' : 'closed'">
+    weather in app:
+    <pre>{{ beijingWeather | json }}</pre>
+  </div> -->
+
+  <div class="weather-box" @flyInOut *ngIf="beijingWeather">
     weather in app:
     <pre>{{ beijingWeather | json }}</pre>
   </div>
+
+  <!-- <div class="weather-box" @insertRemoveTrigger *ngIf="beijingWeather">
+    weather in app:
+    <pre>{{ beijingWeather | json }}</pre>
+  </div> -->
+
+  <!-- <div class="weather-box">
+    weather in app:
+    <pre>{{ beijingWeather | json }}</pre>
+  </div> -->
 
   <p>0.259 -> {{ 0.259 | percent: '2.2'}}</p>
   <p>{{ PI }} -> {{ PI | number: '2.2-2'}}</p>
 
   <nav>
     {{ 'home.navigation' | translate }}
-    <a routerLink="fast">fast</a>&nbsp;
-    <a routerLink="lazy">lazy</a>
+    <a routerLink="fast" routerLinkActive="link-active">fast</a>&nbsp;
+    <a routerLink="lazy" routerLinkActive="link-active">lazy</a>
   </nav>
 
   <router-outlet></router-outlet>
+
+  <a [href]="location.pathname + '#top'" target="_self" class="back_to_top">
+    {{ 'home.button.back_to_top' | translate }}
+  </a>
 </div>

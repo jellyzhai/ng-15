@@ -7,7 +7,17 @@
       "change_language": "切换语言"
     },
     "button": {
-      "get_Beijing_weather": "获取北京天气"
-    }
+      "get_beijing_weather": "获取北京天气",
+      "clear_beijing_weather": "清空北京天气",
+      "get_data": "获取数据",
+      "query_sub_data": "查询关联下级数据",
+      "query_parent_data": "查询关联上级数据",
+      "add_data": "增加数据",
+      "overall_update": "全量更新数据",
+      "partial_update": "部分更新数据",
+      "delete_data": "删除数据",
+      "back_to_top": "回到顶部"
+    },
+    "json_server_desc": "json-server 接口的简单使用, 需要启动json-server服务，查看控制台打印"
   }
 }

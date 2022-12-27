@@ -7,15 +7,19 @@ import { LazyApiService } from './services/lazy-api.service';
   styleUrls: ['./lazy.component.scss'],
 })
 export class LazyComponent implements OnInit {
-  beijingWeather = {};
+  beijingWeather = null;
 
   constructor(private apiService: LazyApiService) {}
 
   ngOnInit(): void {}
 
-  getComingSoongFilms() {
+  getWeatherOfBeijing() {
     this.apiService.getWeatherOfBeijing().subscribe((data) => {
       this.beijingWeather = data;
     });
+  }
+
+  clearWeatherOfBeijing() {
+    this.beijingWeather = null;
   }
 }
