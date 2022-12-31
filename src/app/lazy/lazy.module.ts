@@ -14,6 +14,8 @@ import { ChildComponent } from './components/child/child.component';
 import { NgZoneDemo } from './components/ng-zone-demo/ng-zone-demo';
 import { FirstContentComponent } from './components/first-content/first-content.component';
 import { DefaultContentComponent } from './components/default-content/default-content.component';
+import { TemplateDrivingFormComponent } from './components/template-driving-form/template-driving-form.component';
+import { ModelDrivingFormComponent } from './components/model-driving-form/model-driving-form.component';
 
 @NgModule({
   imports: [
@@ -33,6 +35,8 @@ import { DefaultContentComponent } from './components/default-content/default-co
     NgZoneDemo,
     FirstContentComponent,
     DefaultContentComponent,
+    TemplateDrivingFormComponent,
+    ModelDrivingFormComponent,
   ],
   providers: [...interceptors],
 })

@@ -1,0 +1,54 @@
+<form [formGroup]="form">
+  名称：
+  <div formGroupName="name">
+    firstName: <input type="text" formControlName="firstName">
+    lastName: <input type="text" formControlName="lastName"><br>
+    <div>
+      <pre>{{ firstName?.errors | json }}</pre>
+      <pre>{{ lastName?.errors | json }}</pre>
+    </div>
+  </div>
+
+  gender:
+  <div>
+    <input type="radio" value="male" formControlName="gender">male
+    <input type="radio" value="female" formControlName="gender">female
+  </div>
+
+  phone:
+  <div>
+    <input type="text" formControlName="phone">
+    <div>
+      <pre>{{ phone?.errors | json }}</pre>
+    </div>
+  </div>
+
+  hobbies:
+  <div>
+    <input type="checkbox" value="study" (change)="onChangeHobby($event)">study
+    <input type="checkbox" value="travel" (change)="onChangeHobby($event)">travel
+    <input type="checkbox" value="sing" (change)="onChangeHobby($event)">sing
+  </div>
+
+  school:
+  <div>
+    <input type="text" formControlName="school">
+    <div>
+      <pre>{{ school?.errors | json }}</pre>
+    </div>
+  </div>
+
+  <ng-container formArrayName="concat">
+    联系方式：
+    <div *ngFor="let group of concat.controls; let i = index" [formGroupName]="i">
+      phone: <input type="text" formControlName="phone">
+      address: <input type="text" formControlName="address">
+      <button [disabled]="concat.controls.length === 1" (click)="removeConcat(i)">删除</button><br>
+      <pre>{{ $any(concat.controls[i]).controls.phone.errors | json }}</pre>
+      <pre>{{ $any(concat.controls[i]).controls.address.errors | json }}</pre>
+    </div>
+  </ng-container>
+
+  <button (click)="addConcat()">添加联系方式</button><br>
+  <button (click)="onSubmit()">提交</button>
+</form>

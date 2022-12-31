@@ -1,0 +1,27 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <ng-container ngModelGroup="name">
+    firstName: <input type="text" name="firstName" ngModel /> <br />
+    lastName: <input type="text" name="lastName" ngModel /> <br />
+  </ng-container>
+  phone:
+  <input
+    type="text"
+    name="phone"
+    #phone="ngModel"
+    ngModel
+    required
+    pattern="\d+"
+    minlength="11"
+    maxlength="11"
+  />
+  <br />
+  <div class="has-error" *ngIf="phone.dirty && phone.errors">
+    <div *ngIf="phone.errors['pattern']">手机号只能是数字。</div>
+    <div *ngIf="phone.errors['required']">请填写手机号。</div>
+    <div *ngIf="phone.errors['minlength']">
+     手机号码长度必须是 {{phone.errors['requiredLength'] }} 位。
+      <!-- <pre>{{phone.errors['minlength'] | json}}</pre> -->
+    </div>
+  </div>
+  <button [disabled]="f.invalid">提交</button>
+</form>
