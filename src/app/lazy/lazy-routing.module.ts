@@ -3,6 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { LazyComponent } from './lazy.component';
 import { LazyAComponent } from './lazy-a/lazy-a.component';
 import { LazyBComponent } from './lazy-b/lazy-b.component';
+import { LazyCComponent } from './lazy-c/lazy-c.component';
+import { LazyCFirstComponent } from './lazy-c/lazy-c-first/lazy-c-first.component';
+import { LazyCSecondComponent } from './lazy-c/lazy-c-second/lazy-c-second.component';
 
 const routes: Routes = [
   {
@@ -14,8 +17,24 @@ const routes: Routes = [
         component: LazyAComponent,
       },
       {
-        path: 'lazy-b',
+        path: 'lazy-b/:name',
         component: LazyBComponent,
+      },
+      {
+        path: 'lazy-c',
+        component: LazyCComponent,
+        children: [
+          {
+            path: 'first',
+            component: LazyCFirstComponent,
+            outlet: 'first',
+          },
+          {
+            path: 'second',
+            component: LazyCSecondComponent,
+            outlet: 'second',
+          },
+        ],
       },
       {
         path: '',

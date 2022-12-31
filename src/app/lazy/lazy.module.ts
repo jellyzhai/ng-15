@@ -16,6 +16,9 @@ import { FirstContentComponent } from './components/first-content/first-content.
 import { DefaultContentComponent } from './components/default-content/default-content.component';
 import { TemplateDrivingFormComponent } from './components/template-driving-form/template-driving-form.component';
 import { ModelDrivingFormComponent } from './components/model-driving-form/model-driving-form.component';
+import { LazyCComponent } from './lazy-c/lazy-c.component';
+import { LazyCFirstComponent } from './lazy-c/lazy-c-first/lazy-c-first.component';
+import { LazyCSecondComponent } from './lazy-c/lazy-c-second/lazy-c-second.component';
 
 @NgModule({
   imports: [
@@ -37,6 +40,9 @@ import { ModelDrivingFormComponent } from './components/model-driving-form/model
     DefaultContentComponent,
     TemplateDrivingFormComponent,
     ModelDrivingFormComponent,
+    LazyCComponent,
+    LazyCFirstComponent,
+    LazyCSecondComponent,
   ],
   providers: [...interceptors],
 })

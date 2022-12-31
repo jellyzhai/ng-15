@@ -2,17 +2,16 @@
   <p>lazy works!</p>
 
   <ng-zone-demo></ng-zone-demo>
-  <hr>
+  <hr />
 
   <p>
     <button (click)="getWeatherOfBeijing()">
-      lazy {{ 'home.button.get_beijing_weather' | translate}}
+      lazy {{ "home.button.get_beijing_weather" | translate }}
     </button>
     <button (click)="clearWeatherOfBeijing()">
-      app {{ 'home.button.clear_beijing_weather' | translate}}
+      app {{ "home.button.clear_beijing_weather" | translate }}
     </button>
   </p>
-
 
   <div class="weather-box">
     weather in lazy:
@@ -20,9 +19,18 @@
   </div>
 
   <nav>
-    {{ 'home.navigation' | translate }}
-    <a routerLink="lazy-a" routerLinkActive="link-active">lazy-a</a> &nbsp;
-    <a routerLink="lazy-b" routerLinkActive="link-active">lazy-b</a>
+    {{ "home.navigation" | translate }}
+    <a [routerLink]="['lazy-a', { age: 29 }]" routerLinkActive="link-active" [queryParams]="{ name: 'a' }">lazy-a</a>
+    &nbsp;
+
+    <a [routerLink]="['lazy-b', 'b']" routerLinkActive="link-active">lazy-b</a>
+    &nbsp;
+
+    <!-- 路径参数 不能和 路由出口参数 一起使用，会被覆盖 -->
+    <a [routerLink]="[
+        'lazy-c',
+        { outlets: { first: 'first', second: 'second' } }
+      ]" routerLinkActive="link-active">lazy-c</a>
   </nav>
 
   <router-outlet></router-outlet>
