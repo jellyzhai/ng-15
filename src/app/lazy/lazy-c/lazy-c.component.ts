@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-lazy-c',
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styles: [],
 })
 export class LazyCComponent implements OnInit {
-  constructor() {}
+  constructor(private route: ActivatedRoute) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('app-lazy-c 路由配置中 data 和 resolver 数据: ', this.route.snapshot.data)
+  }
 }

@@ -1,13 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { TemplateDrivingFormComponent } from '../components/template-driving-form/template-driving-form.component';
+import { IsSaveForm } from '../guard/save-form.guard';
 
 @Component({
   selector: 'app-lazy-b',
   templateUrl: './lazy-b.component.html',
   styleUrls: ['./lazy-b.component.scss'],
 })
-export class LazyBComponent implements OnInit {
+export class LazyBComponent implements OnInit, IsSaveForm {
+  @ViewChild(TemplateDrivingFormComponent) tplDrivingFormComp!: TemplateDrivingFormComponent
+
   states = [
     { name: 'Arizona', abbrev: 'AZ' },
     { name: 'California', abbrev: 'CA' },
@@ -27,6 +31,10 @@ export class LazyBComponent implements OnInit {
   }
 
   constructor(private fm: FormBuilder,private route: ActivatedRoute) {}
+
+  isSaveForm() {
+    return this.tplDrivingFormComp.isSaveForm;
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {

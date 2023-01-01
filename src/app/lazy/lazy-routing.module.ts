@@ -6,6 +6,8 @@ import { LazyBComponent } from './lazy-b/lazy-b.component';
 import { LazyCComponent } from './lazy-c/lazy-c.component';
 import { LazyCFirstComponent } from './lazy-c/lazy-c-first/lazy-c-first.component';
 import { LazyCSecondComponent } from './lazy-c/lazy-c-second/lazy-c-second.component';
+import { SaveFormGuard } from './guard/save-form.guard';
+import { UserNameResolver } from './resolver/user-name.resolver';
 
 const routes: Routes = [
   {
@@ -19,10 +21,17 @@ const routes: Routes = [
       {
         path: 'lazy-b/:name',
         component: LazyBComponent,
+        canDeactivate: [SaveFormGuard]
       },
       {
         path: 'lazy-c',
         component: LazyCComponent,
+        data: {
+          info: '2个路由组件同时显示'
+        },
+        resolve: {
+          userName: UserNameResolver
+        },
         children: [
           {
             path: 'first',
